@@ -21,7 +21,7 @@ export default function MainPage() {
             src={items.image}
             alt={items.name}
             loading="lazy"
-            className=" h-full w-full object-cover"
+            className="object-cover w-full h-full "
           />
         </div>
 
@@ -52,7 +52,7 @@ export default function MainPage() {
             src={items.image}
             alt={items.name}
             loading="lazy"
-            className=" h-full w-full object-cover"
+            className="object-cover w-full h-full "
           />
         </div>
 
@@ -86,12 +86,12 @@ export default function MainPage() {
     <>
       <Header />
       <main>
-        <section className="relative grid place-content-center w-full h-screen">
+        <section className="relative grid w-full h-screen place-content-center">
           <img
             src="/src/assets/images/hero.jpeg"
             alt="hero image"
             loading="lazy"
-            className="absolute w-full h-full object-cover bg-no-repeat z-1 opacity-70" />
+            className="absolute object-cover w-full h-full bg-no-repeat z-1 opacity-70" />
           <p className="relative w-full z-2 text-[#f5e0e0] font-edu text-6xl text-center">
             <TypeAnimation
               sequence={['Taste the freshness in every bite \u2665']}
@@ -102,8 +102,8 @@ export default function MainPage() {
             />
           </p>
         </section>
-        <section className="text-center p-3 mt-6 text-lg">
-          <h2 className="font-normal text-4xl mb-4">ABOUT US</h2>
+        <section className="p-3 mt-6 text-lg text-center">
+          <h2 className="mb-4 text-4xl font-normal">ABOUT US</h2>
           <p>
             Welcome to Naybakes! Our journey began with a simple, yet profound, dream shared by two friends with a passion
             for baking and coffee. We envisioned a place where the aroma of freshly baked goods mingles with the rich scent
@@ -123,28 +123,28 @@ export default function MainPage() {
         </section>
 
         {/** Popular Items Section*/}
-        <section className="flex flex-col justify-center items-center mt-6">
-          <h2 className="font-normal text-4xl mb-4">POPULAR ITEMS</h2>
+        <section className="flex flex-col items-center justify-center mt-6">
+          <h2 className="mb-4 text-4xl font-normal">POPULAR ITEMS</h2>
           <p>These are popular with our customers.</p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 mt-7 items-center place-items-center mb-7">
+          <div className="grid items-center grid-cols-1 gap-10 sm:grid-cols-3 mt-7 place-items-center mb-7">
             {popularCardContent}
           </div>
         </section>
 
         {/** Top Items Section*/}
-        <section className="flex flex-col justify-center items-center mt-6">
-          <h2 className="font-normal text-4xl mb-4 mt-6">TOP PRODUCTS</h2>
+        <section className="flex flex-col items-center justify-center mt-6">
+          <h2 className="mt-6 mb-4 text-4xl font-normal">TOP PRODUCTS</h2>
           <p>These are our most sold out products this week.</p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 mt-7 items-center place-items-center">
+          <div className="grid items-center grid-cols-1 gap-10 sm:grid-cols-3 mt-7 place-items-center">
             {topCardContent}
           </div>
         </section>
 
         {/** Reviews Section*/}
-        <section className="flex flex-col justify-center items-center mt-6">
-          <h2 className="font-normal text-4xl mb-4 mt-6">REVIEWS</h2>
+        <section className="flex flex-col items-center justify-center mt-6">
+          <h2 className="mt-6 mb-4 text-4xl font-normal">REVIEWS</h2>
           <p>Here&apos;s what some of our customers have to say</p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 mt-7 items-center place-items-center">
+          <div className="grid items-center grid-cols-1 gap-10 sm:grid-cols-3 mt-7 place-items-center">
             {customerReviews}
           </div>
         </section>
@@ -162,7 +162,7 @@ export default function MainPage() {
           <a href="#"><p>Contact us</p></a>
           <a href="#"><p>Our Location</p></a>
         </div>
-        <div className="flex flex-col sm:flex-row gap-3">
+        <div className="flex flex-col gap-3 sm:flex-row">
           <a href="#">
             <FaInstagram className="h-8 w-18" />
           </a>
