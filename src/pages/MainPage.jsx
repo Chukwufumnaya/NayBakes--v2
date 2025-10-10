@@ -1,9 +1,11 @@
 import React from "react";
 import Header from "../components/Header";
+import { Link } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
 import { info } from "../data/data";
 import { reviews } from "../data/reviews";
 import { FaInstagram, FaFacebook, FaXTwitter } from "react-icons/fa6";
+
 
 
 
@@ -12,11 +14,11 @@ export default function MainPage() {
   const popularItems = info.filter(item => item.tags.includes('popular'));
 
   const popularCardContent = popularItems.map(items => (
-    <div key={items.id} className="bg-[#D5C4A1] p-8 w-[300px] h-[450px] cursor-pointer [perspective:1000px] group rounded-xl">
+    <div key={items.id} className="bg-[#D5C4A1] p-8 py-5 w-[270px] h-[280px] cursor-pointer [perspective:1000px] group rounded-xl shadow">
 
-      <div className="relative h-[350px] w-full rounded-xl shadow-xl transition-all duration-1000 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+      <div className="relative h-[220px] w-full rounded-xl shadow-xl transition-all duration-1000 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
 
-        <div className="absolute inset-0 h-[350px] w-[250px] rounded-xl [backface-visibility:hidden] overflow-hidden">
+        <div className="absolute inset-0 h-[220px] w-[210px] rounded-xl [backface-visibility:hidden] overflow-hidden">
           <img
             src={items.image}
             alt={items.name}
@@ -25,12 +27,12 @@ export default function MainPage() {
           />
         </div>
 
-        <div className="absolute inset-0 h-full w-full rounded-xl [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col items-center justify-center p-4 text-center">
+        <div className="absolute inset-0 h-full w-full rounded-xl [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col items-center justify-center p-4 text-center text-xs">
           <p>{items.description}</p>
         </div>
       </div>
 
-      <div className="absolute inset-x-0 bottom-0 bg-opacity-50 [backface-visibility:hidden] text-right p-4">
+      <div className="absolute inset-x-0 bottom-0 bg-opacity-50 [backface-visibility:hidden] text-right p-4 text-sm">
         <p>
           {items.name}
         </p>
@@ -43,11 +45,11 @@ export default function MainPage() {
   const topItems = info.filter(item => item.tags.includes('top'));
 
   const topCardContent = topItems.map(items => (
-    <div key={items.id} className="bg-[#D5C4A1] p-8 w-[300px] h-[450px] cursor-pointer [perspective:1000px] group rounded-xl">
+    <div key={items.id} className="bg-[#D5C4A1] p-8 py-5 w-[270px] h-[280px] cursor-pointer [perspective:1000px] group rounded-xl">
 
-      <div className="relative h-[350px] w-full rounded-xl shadow-xl transition-all duration-1000 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+      <div className="relative h-[220px] w-full rounded-xl shadow-xl transition-all duration-1000 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
 
-        <div className="absolute inset-0 h-[350px] w-[250px] rounded-xl [backface-visibility:hidden] overflow-hidden">
+        <div className="absolute inset-0 h-[220px] w-[210px] rounded-xl [backface-visibility:hidden] overflow-hidden">
           <img
             src={items.image}
             alt={items.name}
@@ -56,12 +58,12 @@ export default function MainPage() {
           />
         </div>
 
-        <div className="absolute inset-0 h-full w-full rounded-xl [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col items-center justify-center p-4 text-center">
+        <div className="absolute inset-0 h-full w-full rounded-xl [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col items-center justify-center p-4 text-center text-xs">
           <p>{items.description}</p>
         </div>
       </div>
 
-      <div className="absolute inset-x-0 bottom-0 bg-opacity-50 [backface-visibility:hidden] text-right p-4">
+      <div className="absolute inset-x-0 bottom-0 bg-opacity-50 [backface-visibility:hidden] text-right p-4 text-sm">
         <p>
           {items.name}
         </p>
@@ -71,7 +73,7 @@ export default function MainPage() {
   ))
 
   const customerReviews = reviews.map(review => (
-    <div key={review.id} className="bg-[#D5C4A1] p-8 w-[300px] h-[300px] rounded-xl flex flex-col justify-center items-center">
+    <div key={review.id} className="bg-[#D5C4A1] p-5 w-[250px] h-[230px] rounded-xl flex flex-col justify-center items-center">
       <img
         src={review.avatar}
         alt="avatar"
@@ -86,13 +88,13 @@ export default function MainPage() {
     <>
       <Header />
       <main>
-        <section className="relative grid w-full h-screen place-content-center">
+        <section className="relative grid w-full h-[50vh] sm:h-screen place-content-center">
           <img
             src="/src/assets/images/hero.jpeg"
             alt="hero image"
             loading="lazy"
             className="absolute object-cover w-full h-full bg-no-repeat z-1 opacity-70" />
-          <p className="relative w-full z-2 text-[#f5e0e0] font-edu text-6xl text-center">
+          <p className="relative w-full z-2 text-[#f5e0e0] font-edu sm:text-6xl text-3xl text-center">
             <TypeAnimation
               sequence={['Taste the freshness in every bite \u2665']}
               wrapper="span"
@@ -102,74 +104,64 @@ export default function MainPage() {
             />
           </p>
         </section>
-        <section className="p-3 mt-6 text-lg text-center">
-          <h2 className="mb-4 text-4xl font-normal">ABOUT US</h2>
-          <p>
-            Welcome to Naybakes! Our journey began with a simple, yet profound, dream shared by two friends with a passion
-            for baking and coffee. We envisioned a place where the aroma of freshly baked goods mingles with the rich scent
-            of coffee, creating an inviting sanctuary for our community.
-          </p>
-          <p className="mt-4 mb-4">
-            After years of perfecting our craft, experimenting with recipes, and sourcing the finest ingredients, we proudly
-            opened our doors in 2025. We believe that food and drink have the power to connect people, create memories, and
-            uplift spirits, and that belief is the foundation of everything we do.
-          </p>
-
-          <p>
-            Naybakes is your daily escape. We bring you the best of both worlds: a delightful selection of freshly baked
-            treats and perfectly crafted coffee and beverages. Whether you&apos;re grabbing a quick bite or settling in for a cozy moment, we&apos;re here to brighten your day with delicious flavors and a friendly smile. Simple pleasures made
-            extraordinary
-          </p>
+        <section className="p-4 mt-6 bg-[#D5C4A1] shadow w-[300px] sm:w-[630px] h-[250px] m-auto text-xs">
+          <p className="text-2xl font-normal">Our Story</p>
+          <div className="flex items-center justify-center gap-3 mt-2">
+            <img src="/src/assets/images/cafe-picture.jpg" alt="picture" className="w-[120px] rounded-sm object-cover" />
+            <p>Our journey began with a simple, yet profound, dream shared by two friends with a passion for baking and coffee.<Link to="/about" className="text-[#6d675b] hover:text-[#6d675ba8]"> Read our full story</Link>
+            </p>
+            <img src="/src/assets/images/cafe-picture.jpg" alt="picture" className="w-[620px] h-[180px] rounded-sm object-cover hidden sm:block" />
+          </div>
         </section>
 
         {/** Popular Items Section*/}
-        <section className="flex flex-col items-center justify-center mt-6">
+        <section className="flex flex-col items-center justify-center mt-6 text-center">
           <h2 className="mb-4 text-4xl font-normal">POPULAR ITEMS</h2>
           <p>These are popular with our customers.</p>
-          <div className="grid items-center grid-cols-1 gap-10 sm:grid-cols-3 mt-7 place-items-center mb-7">
+          <div className="grid items-center grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 mt-7 place-items-center mb-7">
             {popularCardContent}
           </div>
         </section>
 
         {/** Top Items Section*/}
-        <section className="flex flex-col items-center justify-center mt-6">
+        <section className="flex flex-col items-center justify-center mt-6 text-center">
           <h2 className="mt-6 mb-4 text-4xl font-normal">TOP PRODUCTS</h2>
           <p>These are our most sold out products this week.</p>
-          <div className="grid items-center grid-cols-1 gap-10 sm:grid-cols-3 mt-7 place-items-center">
+          <div className="grid items-center grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 mt-7 place-items-center">
             {topCardContent}
           </div>
         </section>
 
         {/** Reviews Section*/}
-        <section className="flex flex-col items-center justify-center mt-6">
+        <section className="flex flex-col items-center justify-center mt-6 text-center" id="reviews">
           <h2 className="mt-6 mb-4 text-4xl font-normal">REVIEWS</h2>
           <p>Here&apos;s what some of our customers have to say</p>
-          <div className="grid items-center grid-cols-1 gap-10 sm:grid-cols-3 mt-7 place-items-center">
+          <div className="grid items-center grid-cols-1 gap-10 text-xs bg-center sm:grid-cols-2 lg:grid-cols-3 mt-7 place-items">
             {customerReviews}
           </div>
         </section>
         <div className="border-2 border-[#d5c4a1b4] w-11/12 m-auto mt-7"></div>
       </main>
 
-      <footer className="bg-[#000000b2] text-[#D5C4A1] flex justify-around items-center gap-20 mt-10 p-7">
+      <footer className="bg-[#000000b2] text-[#D5C4A1] flex justify-around items-center gap-20 mt-10 p-7 text-xs sm:text-sm">
         <div>
-          <p><a href="#">Menu</a></p>
+          <Link to="/menu">Menu</Link>
           <p><a href="#">New In</a></p>
           <p><a href="#">Weekly Picks</a></p>
         </div>
         <div>
-          <a href="#"><p>About us</p></a>
+          <Link to="/about">About us</Link>
           <a href="#"><p>Contact us</p></a>
           <a href="#"><p>Our Location</p></a>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row">
           <a href="#">
-            <FaInstagram className="h-8 w-18" />
+            <FaInstagram className="sm:h-8 sm:w-18" />
           </a>
           <a href="#">
-            <FaFacebook className="h-8 w-18" />
+            <FaFacebook className="sm:h-8 sm:w-18" />
           </a>
-          <a href="#"><FaXTwitter className="h-8 w-18" /></a>
+          <a href="#"><FaXTwitter className="sm:h-8 sm:w-18" /></a>
         </div>
       </footer>
     </>

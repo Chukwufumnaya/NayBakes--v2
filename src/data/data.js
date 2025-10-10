@@ -84,7 +84,7 @@ export const info = [
     name: "Green Tea",
     description: "Steamed whole-leaf tea that is light, clean, and packed with antioxidants. A refreshing and gently invigorating brew.",
     price: "$3.00",
-    image: "/src/assets/images/green-tea.jpg",
+    image: "/src/assets/images/green-tea2.jpg",
     tags: ["tea"]
   },
   {
@@ -233,7 +233,7 @@ export const info = [
     name: "Turkey Sandwich",
     description: "Sliced smoked turkey, crisp lettuce, tomato, and your choice of cheese on fresh whole-wheat bread. A wholesome, reliable lunch favorite.",
     price: "$9.00",
-    image: "/src/assets/images/turkey-sandwich.jpg",
+    image: "/src/assets/images/turkey-sandwich2.jpg",
     tags: [ "sandwich", "breakfast & lunch"]
   },
   {
