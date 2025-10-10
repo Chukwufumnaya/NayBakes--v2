@@ -90,7 +90,7 @@ export default function MainPage() {
       <main>
         <section className="relative grid w-full h-[50vh] sm:h-screen place-content-center">
           <img
-            src="/images/hero.jpeg"
+            src="./images/hero.jpeg"
             alt="hero image"
             loading="lazy"
             className="absolute object-cover w-full h-full bg-no-repeat z-1 opacity-70" />
@@ -107,10 +107,10 @@ export default function MainPage() {
         <section className="p-4 mt-6 bg-[#D5C4A1] shadow w-[300px] sm:w-[630px] h-[250px] m-auto text-xs">
           <p className="text-2xl font-normal">Our Story</p>
           <div className="flex items-center justify-center gap-3 mt-2">
-            <img src="/images/cafe-picture.jpg" alt="picture" className="w-[120px] rounded-sm object-cover" />
+            <img src="./images/cafe-picture.jpg" alt="picture" className="w-[120px] rounded-sm object-cover" />
             <p>Our journey began with a simple, yet profound, dream shared by two friends with a passion for baking and coffee.<Link to="/about" className="text-[#6d675b] hover:text-[#6d675ba8]"> Read our full story</Link>
             </p>
-            <img src="/images/cafe-picture.jpg" alt="picture" className="w-[620px] h-[180px] rounded-sm object-cover hidden sm:block" />
+            <img src="./images/cafe-picture.jpg" alt="picture" className="w-[620px] h-[180px] rounded-sm object-cover hidden sm:block" />
           </div>
         </section>
 
