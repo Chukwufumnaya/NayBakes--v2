@@ -8,5 +8,5 @@ export default defineConfig({
     react(), 
     tailwindcss(),
   ],
-  base:'NayBakes--v2',
+  base:'/NayBakes--v2',
 })
