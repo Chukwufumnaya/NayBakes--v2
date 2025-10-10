@@ -25,7 +25,7 @@ export function CartProvider({ children }) {
         return [...prevCartItems, { ...productToAdd, quantity: 1 }];
       }
     });
-
+  
 
     if (clickTimeout) {
       clearTimeout(clickTimeout);

@@ -5,6 +5,7 @@ import { useCart } from "../components/CartContext"
 export default function Cart() {
   const { cartItems, removeFromCart } = useCart();
   const totalPrice = cartItems.reduce((sum, item) => sum * item.price, 1);
+  const itemQuantity = cartItems.find(item => item.quantity)
   
   const cartDisplay = (
     <section className="mt-5">
@@ -30,7 +31,7 @@ export default function Cart() {
                       <span>{item.name}</span>
                     </div>
                     <span>{item.quantity}</span>
-                    <span>{item.price}</span>
+                    <span>${item.price}</span>
                     <span>{totalPrice}</span>
                     <button
                       className="px-2 py-1 ml-2 bg-red-300 rounded hover:bg-red-400"

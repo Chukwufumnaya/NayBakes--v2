@@ -47,7 +47,7 @@ export default function Menu() {
         </div>
         <div className="py-4 text-right">
           <p>{item.name}</p>
-          <p>{item.price}</p>
+          <p>${item.price}</p>
           <button
             className={`p-1 cursor-pointer shadow rounded-sm ${isItemClicked ? 'bg-green-700' : 'bg-[#E0D4BB] hover:bg-[#c2b79f]'}`}
             disabled={isItemClicked}
