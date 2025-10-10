@@ -7,6 +7,7 @@ import { SiTicktick } from "react-icons/si";
 
 export default function Menu() {
   const [activeCategory, setActiveCategory] = useState(menuCategories[0]);
+  const [flippedId, setFlippedId] = useState(null); // Add this state
 
   const currentItems = info.filter(items => (
     items.tags.includes(activeCategory)
@@ -28,13 +29,20 @@ export default function Menu() {
 
   const menuCard = currentItems.map((item) => {
     const isItemClicked = item.id === clickedItemId;
+    const isFlipped = flippedId === item.id;
+
     return (
       <div key={item.id} className="bg-[#D5C4A1] p-9 w-[280px] h-[450px] rounded-xl">
-        <div className="cursor-pointer [perspective:1000px] group">
-
-          <div className="relative h-[305px] w-full rounded-xl shadow-xl transition-all duration-1000 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-
-            < div className="absolute inset-0 h-[320px] w-[210px] rounded-xl [backface-visibility:hidden] overflow-hidden">
+        <div
+          className="cursor-pointer [perspective:1000px] group"
+          onClick={() => setFlippedId(isFlipped ? null : item.id)} // Toggle flip on click/tap
+        >
+          <div
+            className={`relative h-[305px] w-full rounded-xl shadow-xl transition-all duration-1000 [transform-style:preserve-3d] ${
+              isFlipped ? "[transform:rotateY(180deg)]" : ""
+            } group-hover:[transform:rotateY(180deg)]`}
+          >
+            <div className="absolute inset-0 h-[320px] w-[210px] rounded-xl [backface-visibility:hidden] overflow-hidden">
               <img
                 src={item.image}
                 alt={item.name}

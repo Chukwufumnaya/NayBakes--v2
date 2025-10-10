@@ -36,7 +36,7 @@ export function CartProvider({ children }) {
     const timer = setTimeout(() => {
       setClickedItemId(null);
       setClickTimeout(null);
-    }, 2000);
+    }, 1000);
 
     setClickTimeout(timer);
 

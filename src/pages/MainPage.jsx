@@ -6,70 +6,58 @@ import { info } from "../data/data";
 import { reviews } from "../data/reviews";
 import { FaInstagram, FaFacebook, FaXTwitter } from "react-icons/fa6";
 
+function FlippableCard({ item }) {
+  const [flipped, setFlipped] = React.useState(false);
 
+  // Detect if it's mobile (simple check)
+  const isMobile = window.innerWidth < 640;
 
+  const handleFlip = () => {
+    if (isMobile) setFlipped(f => !f);
+  };
+
+  return (
+    <div
+      className={`bg-[#D5C4A1] p-8 py-5 w-[270px] h-[280px] cursor-pointer [perspective:1000px] group rounded-xl shadow`}
+      onClick={handleFlip}
+    >
+      <div
+        className={`relative h-[220px] w-full rounded-xl shadow-xl transition-all duration-1000 [transform-style:preserve-3d] 
+          ${flipped ? '[transform:rotateY(180deg)]' : ''}
+          group-hover:[transform:rotateY(180deg)]`}
+      >
+        <div className="absolute inset-0 h-[220px] w-[210px] rounded-xl [backface-visibility:hidden] overflow-hidden">
+          <img
+            src={item.image}
+            alt={item.name}
+            loading="lazy"
+            className="object-cover w-full h-full "
+          />
+        </div>
+        <div className="absolute inset-0 h-full w-full rounded-xl [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col items-center justify-center p-4 text-center text-xs">
+          <p>{item.description}</p>
+        </div>
+      </div>
+      <div className="absolute inset-x-0 bottom-0 bg-opacity-50 [backface-visibility:hidden] text-right p-4 text-sm">
+        <p>{item.name}</p>
+      </div>
+    </div>
+  );
+}
 
 export default function MainPage() {
 
   const popularItems = info.filter(item => item.tags.includes('popular'));
 
-  const popularCardContent = popularItems.map(items => (
-    <div key={items.id} className="bg-[#D5C4A1] p-8 py-5 w-[270px] h-[280px] cursor-pointer [perspective:1000px] group rounded-xl shadow">
-
-      <div className="relative h-[220px] w-full rounded-xl shadow-xl transition-all duration-1000 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-
-        <div className="absolute inset-0 h-[220px] w-[210px] rounded-xl [backface-visibility:hidden] overflow-hidden">
-          <img
-            src={items.image}
-            alt={items.name}
-            loading="lazy"
-            className="object-cover w-full h-full "
-          />
-        </div>
-
-        <div className="absolute inset-0 h-full w-full rounded-xl [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col items-center justify-center p-4 text-center text-xs">
-          <p>{items.description}</p>
-        </div>
-      </div>
-
-      <div className="absolute inset-x-0 bottom-0 bg-opacity-50 [backface-visibility:hidden] text-right p-4 text-sm">
-        <p>
-          {items.name}
-        </p>
-      </div>
-
-    </div>
+  const popularCardContent = popularItems.map(item => (
+    <FlippableCard key={item.id} item={item} />
   ))
 
 
   const topItems = info.filter(item => item.tags.includes('top'));
 
-  const topCardContent = topItems.map(items => (
-    <div key={items.id} className="bg-[#D5C4A1] p-8 py-5 w-[270px] h-[280px] cursor-pointer [perspective:1000px] group rounded-xl">
-
-      <div className="relative h-[220px] w-full rounded-xl shadow-xl transition-all duration-1000 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-
-        <div className="absolute inset-0 h-[220px] w-[210px] rounded-xl [backface-visibility:hidden] overflow-hidden">
-          <img
-            src={items.image}
-            alt={items.name}
-            loading="lazy"
-            className="object-cover w-full h-full "
-          />
-        </div>
-
-        <div className="absolute inset-0 h-full w-full rounded-xl [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col items-center justify-center p-4 text-center text-xs">
-          <p>{items.description}</p>
-        </div>
-      </div>
-
-      <div className="absolute inset-x-0 bottom-0 bg-opacity-50 [backface-visibility:hidden] text-right p-4 text-sm">
-        <p>
-          {items.name}
-        </p>
-      </div>
-
-    </div>
+  const topCardContent = topItems.map(item => (
+    <FlippableCard key={item.id} item={item} />
   ))
 
   const customerReviews = reviews.map(review => (
