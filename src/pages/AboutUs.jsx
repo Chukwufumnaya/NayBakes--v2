@@ -9,7 +9,7 @@ export default function About() {
         <section className="w-3/4 p-3 m-auto mt-6 text-lg text-center">
           <h2 className="mb-4 text-4xl font-normal">ABOUT US</h2>
           <img
-            src="/src/assets/images/sourdough-icon.png"
+            src="/images/sourdough-icon.png"
             alt="A picture of the cafe"
             className="object-cover m-auto" />
           <p>
