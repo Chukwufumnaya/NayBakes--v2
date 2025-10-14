@@ -25,7 +25,7 @@ export function CartProvider({ children }) {
         return [...prevCartItems, { ...productToAdd, quantity: 1 }];
       }
     });
-  
+
 
     if (clickTimeout) {
       clearTimeout(clickTimeout);
@@ -62,11 +62,22 @@ export function CartProvider({ children }) {
     );
   }, []);
 
+  const addQuantity = useCallback((productId) => {
+    setCartItems(prevCartItems =>
+      prevCartItems.map(item =>
+        item.id === productId
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      )
+    );
+  }, []);
+
   const contextValue = {
     cartItems,
     addToCart,
     removeFromCart,
-    clickedItemId
+    clickedItemId,
+    addQuantity
   };
   return (
     <CartContext.Provider value={contextValue}>

@@ -7,7 +7,7 @@ import { SiTicktick } from "react-icons/si";
 
 export default function Menu() {
   const [activeCategory, setActiveCategory] = useState(menuCategories[0]);
-  const [flippedId, setFlippedId] = useState(null); // Add this state
+  const [flippedId, setFlippedId] = useState(null);
 
   const currentItems = info.filter(items => (
     items.tags.includes(activeCategory)
@@ -35,7 +35,7 @@ export default function Menu() {
       <div key={item.id} className="bg-[#D5C4A1] p-9 w-[280px] h-[450px] rounded-xl">
         <div
           className="cursor-pointer [perspective:1000px] group"
-          onClick={() => setFlippedId(isFlipped ? null : item.id)} // Toggle flip on click/tap
+          onClick={() => setFlippedId(isFlipped ? null : item.id)} 
         >
           <div
             className={`relative h-[305px] w-full rounded-xl shadow-xl transition-all duration-1000 [transform-style:preserve-3d] ${

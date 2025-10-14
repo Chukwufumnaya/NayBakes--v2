@@ -3,60 +3,69 @@ import Header from "../components/Header";
 import { useCart } from "../components/CartContext"
 
 export default function Cart() {
-  const { cartItems, removeFromCart } = useCart();
-  const totalPrice = cartItems.reduce((sum, item) => sum * item.price, 1);
-  const itemQuantity = cartItems.find(item => item.quantity)
-  
-  const cartDisplay = (
-    <section className="mt-5">
-      <h2 className="mb-4 text-4xl font-normal text-center">CART</h2>
-      <div className="bg-[#f7f3e9] p-4 rounded-xl shadow mb-6 max-w-4/5 mx-auto ">
+  const { cartItems, removeFromCart, addQuantity } = useCart();
+  const subTotal = cartItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+  const vat = subTotal * 0.10;
+  const totalPrice = subTotal + vat;
 
-        {cartItems.length === 0 ? (
-          <p className="text-center">Your cart is empty.</p>
-        ) : (
-          <>
-            <div className="flex items-center justify-around mb-3">
-              <p>Items</p>
-              <p>Quantity</p>
-              <p>Price</p>
-              <p>Total</p>
-            </div>
-            <ul>
-              {cartItems.map(item => (
-                <div key={item.id}>
-                  <li className="flex items-center justify-between mb-2">
-                    <div className="flex flex-col items-center justify-center">
-                      <img src={item.image} alt={item.name} className="w-[200px] h-[200px] object-cover rounded-full" />
-                      <span>{item.name}</span>
-                    </div>
-                    <span>{item.quantity}</span>
-                    <span>${item.price}</span>
-                    <span>{totalPrice}</span>
-                    <button
-                      className="px-2 py-1 ml-2 bg-red-300 rounded hover:bg-red-400"
-                      onClick={() => removeFromCart(item.id)}
-                    >
-                      Remove
-                    </button>
-                  </li>
-                  <div className="w-full m-auto mb-2 border border-b-black"></div>
-                </div>
 
-              ))}
-            </ul>
-          </>
-
-        )}
-      </div>
-    </section>
-  )
   return (
     <>
       <Header />
-      <section>
-        {cartDisplay}
-      </section>
+      <section className="mt-5" >
+        <h2 className="mb-4 text-4xl font-normal text-center">CART</h2>
+        {cartItems.length === 0 ? (
+          <div className="bg-[#f7f3e9] p-4 rounded-xl shadow mb-6 max-w-[90%] mx-auto">
+            <p className="text-center">Your cart is empty.</p>
+          </div>
+        ) : (
+          <>
+            <div className="justify-center h-full md:flex">
+              <div className="w-full">
+                {cartItems.map(item => (
+                  <div key={item.id} className="bg-[#f7f3e9] p-4 rounded-xl shadow mb-6 w-[90%] md:w-3/4 mx-auto flex items-center justify-between">
+                    <img src={item.image} alt={item.name} className="w-[100px] h-[100px] object-cover rounded-sm" />
+                    <div className="flex flex-col items-center justify-center gap-2.5 sm:text-xl">
+                      <span>{item.name}</span>
+                      <span>${item.price}</span>
+                      <div className="flex items-center gap-2">
+                        <button className="w-7 h-7 sm:w-12 sm:h-12 rounded-full bg-[#D5C4A1] font-semibold text-xl cursor-pointer" onClick={() => { removeFromCart(item.id) }}>-</button>
+                        <span>{item.quantity}</span>
+                        <button className="w-7 h-7 sm:w-12 sm:h-12 rounded-full bg-[#D5C4A1] font-semibold text-xl cursor-pointer" onClick={() => { addQuantity(item.id) }}>+</button>
+
+                      </div>
+                    </div>
+                  </div>
+                ))
+                }
+              </div>
+              <div className="relative flex flex-col w-full md:sticky">
+                <div className="bg-[#f7f3e9] p-4 rounded-xl shadow mb-6 w-[90%] md:w-3/4 mx-auto">
+                  <h2 className="mt-4 text-xl font-semibold md:text-2xl">Order Summary</h2>
+                  {cartItems.map(item => (
+                    <div key={item.id} className="flex justify-between mt-3 md:text-xl">
+                      <p>{item.name} x {item.quantity}</p>
+                      <span>${(item.price * item.quantity).toFixed(2)}</span>
+                    </div>
+                  ))}
+                  <div className="mt-4 md:text-xl">
+                    <p className="flex justify-between">Subtotal: <span>${subTotal.toFixed(2)}</span></p>
+                    <p className="flex justify-between mt-3">VAT(10%)<span>${vat.toFixed(2)}</span></p>
+                    <p className="flex justify-between mt-4 text-xl font-semibold md:text-2xl ">Total: <span>${totalPrice.toFixed(2)}</span></p>
+                  </div>
+                </div>
+                <div className="flex items-center justify-center">
+                    <button className="bg-[#D5C4A1] p-2 py-3 rounded-3xl w-[270px] mb-4 cursor-pointer">Proceed to Checkout</button>
+                  </div>
+              </div>
+            </div>
+          </>
+        )}
+
+      </section >
     </>
   )
 }
