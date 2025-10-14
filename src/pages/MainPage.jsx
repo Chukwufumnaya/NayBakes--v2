@@ -101,7 +101,11 @@ export default function MainPage() {
             <img src="./images/cafe-picture.jpg" alt="picture" className="w-[620px] h-[180px] rounded-sm object-cover hidden sm:block" />
           </div>
         </section>
-
+        <section className="mt-6 text-center">
+          <Link to="/menu">
+            <button className="bg-[#D5C4A1] p-3 rounded-3xl text-sm sm:text-lg cursor-pointer hover:bg-[#9b8e73]">View our menu and place your order now!</button>
+          </Link>
+        </section>
         {/** Popular Items Section*/}
         <section className="flex flex-col items-center justify-center mt-6 text-center">
           <h2 className="mb-4 text-4xl font-normal">POPULAR ITEMS</h2>
