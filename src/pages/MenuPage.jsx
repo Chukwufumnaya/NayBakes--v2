@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { info, menuCategories } from "../data/data";
+import { info, menuCategories, addOnCosts } from "../data/data";
 import Header from "../components/Header";
 import { useCart } from "../components/CartContext";
 import { SiTicktick } from "react-icons/si";
@@ -100,6 +100,7 @@ export default function Menu() {
 
   const modal = () => {
     const isItemClicked = selectedItem ? selectedItem.id === clickedItemId : false;
+
     return (
       <>
         {isOpen && selectedItem && (
@@ -111,19 +112,40 @@ export default function Menu() {
                   <p className="font-normal">{mod.category}</p>
                   {mod.category === 'Syrup' || mod.category === 'Toppings' || mod.category === 'Cheese' || mod.category === 'Filling' ? (
                     mod.options.map((option, optIndex) => (
-                      <label key={`option-${selectedItem.id}-${optIndex}`}>
-                        <input type="checkbox" /> {option} <br />
-                      </label>
+                      <div key={`option-${selectedItem.id}-${optIndex}`}>
+                        <label >
+                          <input type="checkbox" /> {option}
+                          <span>
+                            {
+                              addOnCosts[mod.category]?.[option] > 0 ?
+                                ` (+$${addOnCosts[mod.category][option].toFixed(2)})`
+                                :
+                                null
+                            }
+                          </span>
+                          <br />
+                        </label>
+                      </div>
                     ))
                   ) : (
                     mod.options.map((option, optIndex) => (
                       <label key={`option-${selectedItem.id}-${optIndex}`}>
-                        <input type="radio" /> {option} <br />
+                        <input type="radio" id={option} name={mod.category} /> {option}
+                        <span>
+                          {
+                            addOnCosts[mod.category]?.[option] > 0 ?
+                              ` (+$${addOnCosts[mod.category][option].toFixed(2)})`
+                              :
+                              null
+                          }
+                        </span>
+                        <br />
                       </label>
                     ))
                   )}
                 </div>
               ))}
+              <p className="mt-2 mb-2 text-xl font-semibold text-center">Price - ${selectedItem.price}</p>
               <div className="flex flex-col gap-2">
                 <button className="p-1 rounded-sm shadow cursor-pointer bg-[#E0D4BB] hover:bg-[#c2b79f] mt-2"
                   onClick={handleCloseModal}>X Close</button>
@@ -151,7 +173,7 @@ export default function Menu() {
     )
   }
 
- 
+
   return (
     <>
       <Header />
