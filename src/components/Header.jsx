@@ -28,22 +28,22 @@ export default function Header() {
       <div className="flex items-center justify-center gap-6 sm:hidden">
         <Link to="/">
           <BiHomeAlt2
-            className="w-4 h-4" />
+            className="w-5 h-5" />
         </Link>
         <Link to="/menu">
           <BiFoodMenu
-            className="w-4 h-4" />
+            className="w-5 h-5" />
         </Link>
         <HashLink to="/#reviews">
           <TbMessageStar
-            className="w-4 h-4" />
+            className="w-5 h5" />
         </HashLink>
         <div className="relative">
           <Link to="/cart">
             <IoCartOutline
-              className="w-4 h-4 " />
+              className="w-5 h-5 " />
           </Link>
-          <div className="absolute font-semibold text-red-900 left-1 bottom-2">{cartQuantity}</div>
+          <div className="absolute font-semibold text-red-900 left-1 bottom-3">{cartQuantity}</div>
         </div>
 
       </div>
