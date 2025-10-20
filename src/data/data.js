@@ -10,12 +10,14 @@ export const info = [
       {
         category: 'Size',
         options: ['Small', 'Medium', 'Large'],
-        default: 'Medium'
+        default: 'Medium',
+        type: 'radio'
       },
       {
         category: 'Syrup',
         options: ['None', 'Vanilla', 'Caramel', 'Hazelnut'],
-        default: 'None'
+        default: 'None',
+        type: 'checkbox'
       }
     ]
   },
@@ -30,14 +32,14 @@ export const info = [
       {
         category: 'Size',
         options: ['Small', 'Medium', 'Large'],
-        default: 'Medium'
-
+        default: 'Medium',
+        type: 'radio'
       },
       {
         category: 'Syrup',
         options: ['None', 'Vanilla', 'Caramel', 'Hazelnut'],
-        default: 'None'
-
+        default: 'None',
+        type: 'checkbox'
       }
     ]
   },
@@ -52,20 +54,20 @@ export const info = [
       {
         category: 'Size',
         options: ['Small', 'Medium', 'Large'],
-        default: 'Medium'
-
+        default: 'Medium',
+        type: 'radio'
       },
       {
         category: 'Milk',
         options: ['Whole', 'Oat', 'Almond'],
-        default: 'Whole'
-
+        default: 'Whole',
+        type: 'radio'
       },
       {
         category: 'Syrup',
         options: ['None', 'Vanilla', 'Caramel', 'Hazelnut'],
-        default: 'None'
-
+        default: 'None',
+        type: 'checkbox'
       }
     ]
   },
@@ -80,20 +82,20 @@ export const info = [
       {
         category: 'Size',
         options: ['Small', 'Medium', 'Large'],
-        default: 'Medium'
-
+        default: 'Medium',
+        type: 'radio'
       },
       {
         category: 'Milk',
         options: ['Whole', 'Oat', 'Almond'],
-        default: 'Whole'
-
+        default: 'Whole',
+        type: 'radio'
       },
       {
         category: 'Syrup',
         options: ['None', 'Vanilla', 'Caramel', 'Hazelnut'],
-        default: 'None'
-
+        default: 'None',
+        type: 'checkbox'
       }
     ]
   },
@@ -108,25 +110,27 @@ export const info = [
       {
         category: 'Size',
         options: ['Small', 'Medium', 'Large'],
-        default: 'Medium'
-
+        default: 'Medium',
+        type: 'radio'
       },
       {
         category: 'Milk',
         options: ['Whole', 'Oat', 'Almond'],
-        default: 'Whole'
-
+        default: 'Whole',
+        type: 'radio'
       },
       {
         category: 'Syrup',
         options: ['None', 'Vanilla', 'Caramel', 'Hazelnut'],
-        default: 'None'
+        default: 'None',
+        type: 'checkbox'
 
       },
       {
         category: 'Toppings',
         options: ['None', 'Whipped Cream'],
-        default: 'Whipped Cream'
+        default: 'Whipped Cream',
+        type: 'radio'
       }
     ]
   },
@@ -141,19 +145,20 @@ export const info = [
       {
         category: 'Size',
         options: ['Small', 'Medium', 'Large'],
-        default: 'Medium'
-
+        default: 'Medium',
+        type: 'radio'
       },
       {
         category: 'Milk',
         options: ['Whole', 'Oat', 'Almond'],
-        default: 'Whole'
-
+        default: 'Whole',
+        type: 'radio'
       },
       {
         category: 'Syrup',
         options: ['None', 'Vanilla', 'Caramel', 'Hazelnut'],
-        default: 'None'
+        default: 'None',
+        type: 'checkbox'
 
       }
     ]
@@ -169,19 +174,20 @@ export const info = [
       {
         category: 'Size',
         options: ['Small', 'Medium', 'Large'],
-        default: 'Medium'
-
+        default: 'Medium',
+        type: 'radio'
       },
       {
         category: 'Milk',
         options: ['Whole', 'Oat', 'Almond'],
-        default: 'Whole'
-
+        default: 'Whole',
+        type: 'radio'
       },
       {
         category: 'Syrup',
         options: ['None', 'Vanilla', 'Caramel', 'Hazelnut'],
-        default: 'None'
+        default: 'None',
+        type: 'checkbox'
 
       }
     ]
@@ -197,13 +203,14 @@ export const info = [
       {
         category: 'Size',
         options: ['Small', 'Medium', 'Large'],
-        default: 'Medium'
-
+        default: 'Medium',
+        type: 'radio'
       },
       {
         category: 'Syrup',
         options: ['None', 'Vanilla', 'Caramel', 'Hazelnut'],
-        default: 'None'
+        default: 'None',
+        type: 'checkbox'
 
       }
     ]
@@ -219,13 +226,14 @@ export const info = [
       {
         category: 'Size',
         options: ['Small', 'Medium', 'Large'],
-        default: 'Medium'
-
+        default: 'Medium',
+        type: 'radio'
       },
       {
         category: 'Syrup',
         options: ['None', 'Vanilla', 'Caramel', 'Hazelnut'],
-        default: 'None'
+        default: 'None',
+        type: 'checkbox'
 
       }
     ]
@@ -241,20 +249,20 @@ export const info = [
       {
         category: 'Size',
         options: ['Small', 'Medium', 'Large'],
-        default: 'Medium'
-
+        default: 'Medium',
+        type: 'radio'
       },
       {
         category: 'Milk',
         options: ['Whole', 'Oat', 'Almond'],
-        default: 'Whole'
-
+        default: 'Whole',
+        type: 'radio'
       },
       {
         category: 'Sweetener',
         options: ['None', 'Honey', 'Sugar'],
-        default: 'Sugar'
-
+        default: 'Sugar',
+        type: 'radio'
       }
     ]
   },
@@ -269,20 +277,20 @@ export const info = [
       {
         category: 'Size',
         options: ['Small', 'Medium', 'Large'],
-        default: 'Medium'
-
+        default: 'Medium',
+        type: 'radio'
       },
       {
         category: 'Milk',
         options: ['Whole', 'Oat', 'Almond'],
-        default: 'Whole'
-
+        default: 'Whole',
+        type: 'radio'
       },
       {
         category: 'Sweetener',
         options: ['None', 'Honey', 'Sugar'],
-        default: 'Sugar'
-
+        default: 'Sugar',
+        type: 'radio'
       }
     ]
   },
@@ -297,20 +305,20 @@ export const info = [
       {
         category: 'Size',
         options: ['Small', 'Medium', 'Large'],
-        default: 'Medium'
-
+        default: 'Medium',
+        type: 'radio'
       },
       {
         category: 'Milk',
         options: ['Whole', 'Oat', 'Almond'],
-        default: 'Whole'
-
+        default: 'Whole',
+        type: 'radio'
       },
       {
         category: 'Sweetener',
         options: ['None', 'Honey', 'Sugar'],
-        default: 'Sugar'
-
+        default: 'Sugar',
+        type: 'radio'
       }
     ]
   },
@@ -325,19 +333,20 @@ export const info = [
       {
         category: 'Size',
         options: ['Small', 'Medium', 'Large'],
-        default: 'Medium'
-
+        default: 'Medium',
+        type: 'radio'
       },
       {
         category: 'Milk',
         options: ['Whole', 'Oat', 'Almond'],
-        default: 'Whole'
-
+        default: 'Whole',
+        type: 'radio'
       },
       {
         category: 'Toppings',
         options: ['None', 'Whipped Cream', 'Mini Marshmallows'],
-        default: 'None'
+        default: 'None',
+        type: 'checkbox'
 
       }
     ]
@@ -369,20 +378,20 @@ export const info = [
       {
         category: 'Size',
         options: ['Small', 'Medium', 'Large'],
-        default: 'Medium'
-
+        default: 'Medium',
+        type: 'radio'
       },
       {
         category: 'Milk',
         options: ['Whole', 'Oat', 'Almond'],
-        default: 'Whole'
-
+        default: 'Whole',
+        type: 'radio'
       },
       {
         category: 'Yogurt',
         options: ['Greek', 'Plain', 'Almond'],
-        default: 'Greek'
-
+        default: 'Greek',
+        type: 'radio'
       }
     ]
   },
@@ -397,20 +406,20 @@ export const info = [
       {
         category: 'Size',
         options: ['Small', 'Medium', 'Large'],
-        default: 'Medium'
-
+        default: 'Medium',
+        type: 'radio'
       },
       {
         category: 'Milk',
         options: ['Whole', 'Oat', 'Almond'],
-        default: 'Whole'
-
+        default: 'Whole',
+        type: 'radio'
       },
       {
         category: 'Yogurt',
         options: ['Greek', 'Plain', 'Almond'],
-        default: 'Greek'
-
+        default: 'Greek',
+        type: 'radio'
       }
     ]
   },
@@ -433,20 +442,21 @@ export const info = [
       {
         category: 'Drizzles',
         options: ['None', 'Honey', 'Chocolate', 'Butter'],
-        default: 'Honey'
-
+        default: 'Honey',
+        type: 'radio'
       },
       {
         category: 'Toppings',
         options: ['None', 'Fresh Berries'],
-        default: 'Fresh Berries'
+        default: 'Fresh Berries',
+        type: 'radio'
 
       },
       {
         category: 'Gluten Free',
         options: ['None', 'Gluten Free'],
-        default: 'None'
-
+        default: 'None',
+        type: 'radio'
       }
     ]
   },
@@ -461,13 +471,14 @@ export const info = [
       {
         category: 'Drizzles',
         options: ['None', 'Honey', 'Chocolate', 'Butter'],
-        default: 'Honey'
-
+        default: 'Honey',
+        type: 'radio'
       },
       {
         category: 'Toppings',
         options: ['None', 'Fresh Berries'],
-        default: 'Fresh Berries'
+        default: 'Fresh Berries',
+        type: 'radio'
 
       }
     ]
@@ -483,13 +494,14 @@ export const info = [
       {
         category: 'Drizzles',
         options: ['None', 'Honey', 'Chocolate', 'Butter'],
-        default: 'Honey'
-
+        default: 'Honey',
+        type: 'radio'
       },
       {
         category: 'Toppings',
         options: ['None', 'Fresh Berries'],
-        default: 'Fresh Berries'
+        default: 'Fresh Berries',
+        type: 'radio'
 
       }
     ]
@@ -505,7 +517,8 @@ export const info = [
       {
         category: 'Toppings',
         options: ['None', 'Vanilla Ice Cream'],
-        default: 'None'
+        default: 'None',
+        type: 'radio'
 
       }
     ]
@@ -521,20 +534,21 @@ export const info = [
       {
         category: 'Drizzles',
         options: ['None', 'Caramel'],
-        default: 'None'
-
+        default: 'None',
+        type: 'radio'
       },
       {
         category: 'Toppings',
         options: ['None', 'Vanilla Ice Cream'],
-        default: 'None'
+        default: 'None',
+        type: 'radio'
 
       },
       {
         category: 'Gluten Free',
         options: ['None', 'Gluten Free'],
-        default: 'None'
-
+        default: 'None',
+        type: 'radio'
       }
     ]
   },
@@ -549,13 +563,14 @@ export const info = [
       {
         category: 'Drizzles',
         options: ['None', 'Caramel', 'Pecans', 'Walnuts'],
-        default: 'None'
-
+        default: 'None',
+        type: 'radio'
       },
       {
         category: 'Toppings',
         options: ['None', 'Extra Cream Cheese Frosting'],
-        default: 'None'
+        default: 'None',
+        type: 'radio'
 
       }
     ]
@@ -571,17 +586,20 @@ export const info = [
       {
         category: 'Toppings',
         options: ['None', 'Cream Cheese', 'Butter', 'Jam'],
-        default: 'None'
+        default: 'None',
+        type: 'checkbox'
       },
       {
         category: 'Toasting',
         options: ['None', 'Toasted'],
-        default: 'Toasted'
+        default: 'Toasted',
+        type: 'radio'
       },
       {
         category: 'Filling',
         options: ['None', 'Tomato', 'Avocado'],
-        default: 'None'
+        default: 'None',
+        type: 'checkbox'
 
       },
     ]
@@ -597,8 +615,8 @@ export const info = [
       {
         category: 'Gluten Free',
         options: ['None', 'Gluten Free'],
-        default: 'None'
-
+        default: 'None',
+        type: 'radio'
       }
     ]
   },
@@ -613,14 +631,14 @@ export const info = [
       {
         category: 'Size',
         options: ['Small', 'Medium', 'Large'],
-        default: 'Medium'
-
+        default: 'Medium',
+        type: 'radio'
       },
       {
         category: 'Yogurt',
         options: ['Greek', 'Plain', 'Almond'],
-        default: 'Greek'
-
+        default: 'Greek',
+        type: 'radio'
       }
     ]
   },
@@ -635,22 +653,26 @@ export const info = [
       {
         category: 'Gluten Free',
         options: ['None', 'Gluten Free'],
-        default: 'None'
+        default: 'None',
+        type: 'radio'
       },
       {
         category: 'Pastry',
         options: ['English Muffin', 'Bagel', 'Croissant'],
-        default: 'Bagel'
+        default: 'Bagel',
+        type: 'radio'
       },
       {
         category: 'Protein',
         options: ['None', 'Ham', 'Bacon'],
-        default: 'None'
+        default: 'None',
+        type: 'radio'
       },
       {
         category: 'Cheese',
         options: ['None', 'American', 'Cheddar', 'Swiss'],
-        default: 'None'
+        default: 'None',
+        type: 'checkbox'
       },
     ]
   },
@@ -665,13 +687,14 @@ export const info = [
       {
         category: 'Cheese',
         options: ['None', 'American', 'Cheddar', 'Swiss'],
-        default: 'None'
+        default: 'None',
+        type: 'checkbox'
       },
       {
         category: 'Size',
         options: ['6-inch', '8-inch', '10-inch'],
-        default: '8-inch'
-
+        default: '8-inch',
+        type: 'radio'
       },
     ]
   },
@@ -686,8 +709,8 @@ export const info = [
       {
         category: 'Size',
         options: ['6-inch', '8-inch', '10-inch'],
-        default: '8-inch'
-
+        default: '8-inch',
+        type: 'radio'
       },
     ]
   },
@@ -702,8 +725,8 @@ export const info = [
       {
         category: 'Size',
         options: ['Side', 'Main'],
-        default: 'Main'
-
+        default: 'Main',
+        type: 'radio'
       },
     ]
   },
@@ -718,8 +741,8 @@ export const info = [
       {
         category: 'Size',
         options: ['Side', 'Main'],
-        default: 'Main'
-
+        default: 'Main',
+        type: 'radio'
       },
     ]
   },
@@ -734,19 +757,20 @@ export const info = [
       {
         category: 'Size',
         options: ['Small', 'Medium', 'Large'],
-        default: 'Medium'
-
+        default: 'Medium',
+        type: 'radio'
       },
       {
         category: 'Milk',
         options: ['Whole', 'Oat', 'Almond'],
-        default: 'Whole'
-
+        default: 'Whole',
+        type: 'radio'
       },
       {
         category: 'Syrup',
         options: ['None', 'Vanilla', 'Caramel', 'Hazelnut'],
-        default: 'None'
+        default: 'None',
+        type: 'checkbox'
 
       }
     ]
@@ -757,13 +781,13 @@ export const info = [
 export const menuCategories = ["coffee", "tea", "pastries", "breakfast & lunch", "non-coffee"]
 
 export const addOnCosts = {
-  'Size': { 'Large': 0.75, 'Medium': 0, 'Small': 0, '6-inch': 0.50, '8-inch': 0.50, '10-inch': 0.50 },
-  'Milk': { 'Oat': 0.75, 'Almond': 0.75, 'Whole': 0.75 },
+  'Size': { 'Large': 0.75, 'Medium': 0, 'Small': 0, '6-inch': 0, '8-inch': 0, '10-inch': 0.50 },
+  'Milk': { 'Oat': 0.75, 'Almond': 0.75, 'Whole': 0 },
   'Syrup': { 'None': 0, 'Vanilla': 0.50, 'Caramel': 0.50, 'Hazelnut': 0.50 },
   'Toppings': { 'Whipped Cream': 0, 'Mini Marshmallows': 0.50, 'Fresh Berries': 0.50, 'Vanilla Ice Cream': 0.50, 'Extra Cream Cheese Frosting': 0.50, 'None': 0, 'Cream Cheese': 0, 'Butter': 0, 'Jam': 0 },
-  'Sweetener': { 'None': 0.50, 'Sugar': 0.50, 'Honey': 0.50 },
+  'Sweetener': { 'None': 0, 'Sugar': 0.50, 'Honey': 0.50 },
   'Gluten Free': { 'None': 0, 'Gluten Free': 1.00 },
-  'Yogurt': { 'Greek': 0.50, 'Plain': 0.50, 'Almond': 0.50 },
+  'Yogurt': { 'Greek': 0.50, 'Plain': 0, 'Almond': 0.50 },
   'Filling': { 'None': 0, 'Tomato': 0.75, 'Avocado': 0.75 },
   'Drizzles': { 'None': 0, 'Caramel': 0.75, 'Pecans': 0.75, 'Walnuts': 0.75, 'Honey': 0.75, 'Chocolate': 0.75, 'Butter': 0.75 }
 }

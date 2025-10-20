@@ -10,17 +10,82 @@ export default function Menu() {
   const [flippedId, setFlippedId] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedMods, setSelectedMods] = useState({});
 
   const handleOpenModal = (item) => {
     setSelectedItem(item);
+
+    const initialMods = {};
+    if (item.availableMods) {
+      item.availableMods.forEach(mod => {
+        const modType = mod.type
+        const defaultOption = mod.default
+
+        if (modType === 'radio') {
+          const option = defaultOption || mod.options[0];
+          const cost = addOnCosts[mod.category]?.[option] || 0;
+          initialMods[mod.category] = { option, cost: Number(cost) };
+        } else if (modType === 'checkbox') {
+          if (defaultOption && Array.isArray(defaultOption)) {
+            initialMods[mod.category] = defaultOption.map(optionName => ({
+              option: optionName,
+              cost: Number(addOnCosts[mod.category]?.[optionName] || 0)
+            }));
+          } else if (defaultOption) {
+            initialMods[mod.category] = [{
+              option: defaultOption,
+              cost: Number(addOnCosts[mod.category]?.[defaultOption] || 0)
+            }];
+          } else {
+            initialMods[mod.category] = [];
+          }
+        }
+      })
+    }
+
+    setSelectedMods(initialMods)
     setIsOpen(true)
   }
+
 
   const handleCloseModal = () => {
     setSelectedItem(null)
     setIsOpen(false)
+    setSelectedMods({})
   }
 
+  const noneOption = 'None';
+
+  const handleModChange = (category, option, cost, type) => {
+    setSelectedMods(prevMods => {
+      const newMods = { ...prevMods };
+
+      if (type === 'radio') {
+        newMods[category] = { option, cost: Number(cost) }
+
+      } else if (type == 'checkbox') {
+        const currentOptions = Array.isArray(newMods[category]) ? newMods[category] : [];
+        const isCurrentlySelected = currentOptions.some(mod => mod.option === option);
+
+        if (option === noneOption) {
+          if (isCurrentlySelected) {
+            newMods[category] = currentOptions.filter(mod => mod.option !== noneOption);
+          } else {
+            newMods[category] = [{ option, cost: Number(cost) }];
+          }
+        } else {
+          let updatedOptions = currentOptions.filter(mod => mod.option !== noneOption);
+
+          if (isCurrentlySelected) {
+            newMods[category] = updatedOptions.filter(mod => mod.option !== option);
+          } else {
+            newMods[category] = [...updatedOptions, { option, cost: Number(cost) }];
+          }
+        }
+      }
+      return newMods;
+    })
+  }
 
   const currentItems = info.filter(items => (
     items.tags.includes(activeCategory)
@@ -45,7 +110,11 @@ export default function Menu() {
       handleOpenModal(item)
     }
     else {
-      addToCart(item)
+      addToCart({
+        ...item,
+        finalPrice: Number(item.price) || 0,
+        selectedMods: {},
+      })
     }
   }
 
@@ -101,6 +170,20 @@ export default function Menu() {
   const modal = () => {
     const isItemClicked = selectedItem ? selectedItem.id === clickedItemId : false;
 
+    let finalPrice = selectedItem ? Number(selectedItem.price) : 0;
+
+    Object.values(selectedMods).forEach(modValue => {
+      if (Array.isArray(modValue)) {
+
+        modValue.forEach(mod => {
+          finalPrice += Number(mod.cost);
+        });
+      } else if (modValue && typeof modValue === 'object') {
+
+        finalPrice += Number(modValue.cost);
+      }
+    });
+
     return (
       <>
         {isOpen && selectedItem && (
@@ -110,49 +193,77 @@ export default function Menu() {
               {selectedItem.availableMods.map((mod, modIndex) => (
                 <div key={`mod-${selectedItem.id}-${modIndex}`}>
                   <p className="font-normal">{mod.category}</p>
-                  {mod.category === 'Syrup' || mod.category === 'Toppings' || mod.category === 'Cheese' || mod.category === 'Filling' ? (
-                    mod.options.map((option, optIndex) => (
-                      <div key={`option-${selectedItem.id}-${optIndex}`}>
-                        <label >
-                          <input type="checkbox" /> {option}
-                          <span>
-                            {
-                              addOnCosts[mod.category]?.[option] > 0 ?
-                                ` (+$${addOnCosts[mod.category][option].toFixed(2)})`
-                                :
-                                null
-                            }
-                          </span>
-                          <br />
-                        </label>
-                      </div>
-                    ))
-                  ) : (
-                    mod.options.map((option, optIndex) => (
+                  {mod.type === 'checkbox' &&
+                    mod.options.map((option, optIndex) => {
+                      const cost = addOnCosts[mod.category]?.[option] || 0;
+                      const selected = selectedMods[mod.category];
+                      const isChecked = Array.isArray(selected)
+                        ? selected.some(m => m.option === option)
+                        : false;
+
+                      return (
+                        <div key={`option-${selectedItem.id}-${optIndex}`}>
+                          <label >
+                            <input
+                              type="checkbox"
+                              checked={isChecked}
+                              onChange={() => handleModChange(mod.category, option, cost, 'checkbox')} /> {option}
+                            <span>
+                              {
+                                cost > 0 ?
+                                  ` (+$${Number(cost).toFixed(2)})`
+                                  :
+                                  null
+                              }
+                            </span>
+                            <br />
+                          </label>
+                        </div>
+                      )
+                    })
+                  }
+                  {mod.type === 'radio' && mod.options.map((option, optIndex) => {
+                    const cost = addOnCosts[mod.category]?.[option] || 0;
+                    const isChecked = selectedMods[mod.category]?.option === option;
+                    return (
                       <label key={`option-${selectedItem.id}-${optIndex}`}>
-                        <input type="radio" id={option} name={mod.category} /> {option}
+                        <input
+                          type="radio"
+                          id={option}
+                          name={mod.category}
+                          checked={isChecked}
+                          onChange={() => handleModChange(mod.category, option, cost, 'radio')}
+                        /> {option}
                         <span>
                           {
-                            addOnCosts[mod.category]?.[option] > 0 ?
-                              ` (+$${addOnCosts[mod.category][option].toFixed(2)})`
+                            cost > 0 ?
+                              ` (+$${Number(cost).toFixed(2)})`
                               :
                               null
                           }
                         </span>
                         <br />
                       </label>
-                    ))
-                  )}
+                    )
+                  })
+                  }
                 </div>
               ))}
-              <p className="mt-2 mb-2 text-xl font-semibold text-center">Price - ${selectedItem.price}</p>
+              <p className="mt-2 mb-2 text-xl font-semibold text-center">Price - ${(Number(finalPrice)).toFixed(2)}</p>
               <div className="flex flex-col gap-2">
                 <button className="p-1 rounded-sm shadow cursor-pointer bg-[#E0D4BB] hover:bg-[#c2b79f] mt-2"
                   onClick={handleCloseModal}>X Close</button>
                 <button
                   className={`p-1 cursor-pointer shadow rounded-sm ${isItemClicked ? 'bg-green-700' : 'bg-[#E0D4BB] hover:bg-[#c2b79f]'}`}
                   disabled={isItemClicked}
-                  onClick={() => addToCart(selectedItem)}
+                  onClick={() => {
+                    addToCart({
+                      ...selectedItem,
+                      finalPrice: finalPrice,
+                      selectedMods: selectedMods,
+                    });
+                    handleCloseModal();
+                  }}
                 > {isItemClicked ? (
                   <>
                     <div className="flex items-center justify-center gap-2 px-1">
@@ -161,13 +272,14 @@ export default function Menu() {
                     </div>
                   </>
                 ) : (
-                  <span>+ Add to Cart</span>
+                  <span>+ Add to Cart (${Number(finalPrice).toFixed(2)})</span>
                 )}
                 </button>
               </div>
             </div>
-          </div>
-        )}
+          </div >
+        )
+        }
       </>
 
     )

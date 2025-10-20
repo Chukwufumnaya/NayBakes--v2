@@ -13,17 +13,25 @@ export function CartProvider({ children }) {
   const [clickTimeout, setClickTimeout] = useState(null);
 
   const addToCart = useCallback((productToAdd) => {
+    const uniqueCartId = Date.now() + Math.random();
+
     setCartItems(prevCartItems => {
-      const existingItem = prevCartItems.find(item => item.id === productToAdd.id);
+      const isCustomized = productToAdd.selectedMods && Object.keys(productToAdd.selectedMods).length > 0;
+
+      let existingItem = null;
+
+      if (!isCustomized) {
+       existingItem = prevCartItems.find(item => item.id === productToAdd.id && !item.selectedMods);
+      }
 
       if (existingItem) {
         return prevCartItems.map(item =>
-          item.id === productToAdd.id
+          item.cartItemid === existingItem.cartItemid
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
       } else {
-        return [...prevCartItems, { ...productToAdd, quantity: 1 }];
+        return [...prevCartItems, { ...productToAdd, quantity: 1, cartItemId: uniqueCartId }];
       }
     });
 
@@ -43,19 +51,19 @@ export function CartProvider({ children }) {
 
   }, [clickTimeout]);
 
-  const removeFromCart = useCallback((productId) => {
+  const removeFromCart = useCallback((cartItemId) => {
     setCartItems(prevCartItems => {
-      const itemToRemove = prevCartItems.find(item => item.id === productId)
+      const itemToRemove = prevCartItems.find(item => item.cartItem.id === cartItemId)
 
       if (itemToRemove) {
         if (itemToRemove.quantity > 1) {
           return prevCartItems.map(item =>
-            item.id === productId
+            item.cartItemId === cartItemId
               ? { ...item, quantity: item.quantity - 1 }
               : item
           );
         } else {
-          return prevCartItems.filter(item => item.id !== productId)
+          return prevCartItems.filter(item => item.cartItemId !== cartItemId)
         }
       }
       return prevCartItems;
@@ -63,10 +71,10 @@ export function CartProvider({ children }) {
     );
   }, []);
 
-  const addQuantity = useCallback((productId) => {
+  const addQuantity = useCallback((cartItemId) => {
     setCartItems(prevCartItems =>
       prevCartItems.map(item =>
-        item.id === productId
+        item.cartItemId === cartItemId
           ? { ...item, quantity: item.quantity + 1 }
           : item
       )
