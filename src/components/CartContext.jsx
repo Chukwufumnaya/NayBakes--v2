@@ -1,4 +1,5 @@
 import React, { useState, useCallback, createContext, useContext } from "react";
+import localStorage from "./LocalStorageFunction";
 
 
 const CartContext = createContext();
@@ -8,7 +9,7 @@ export const useCart = () => {
 };
 
 export function CartProvider({ children }) {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = localStorage('shoppingCart', [])
   const [clickedItemId, setClickedItemId] = useState(null);
   const [clickTimeout, setClickTimeout] = useState(null);
 
@@ -82,12 +83,17 @@ export function CartProvider({ children }) {
     );
   }, []);
 
+  const clearCart = () => {
+    setCartItems([])
+  };
+
   const contextValue = {
     cartItems,
     addToCart,
     removeFromCart,
     clickedItemId,
-    addQuantity
+    addQuantity,
+    clearCart
   };
   return (
     <CartContext.Provider value={contextValue}>

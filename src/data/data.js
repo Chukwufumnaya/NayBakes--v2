@@ -647,7 +647,7 @@ export const info = [
     name: "Breakfast Sandwich",
     description: "Your choice of fresh eggs and melted cheese on a toasted English muffin, bagel, or croissant with savory ham or bacon. The perfect morning fuel.",
     price: "6.00",
-    image: "./images/breakfast-sandwich.jpg",
+    image: "./images/breakfast-sandwich2.jpg",
     tags: ["sandwich", "breakfast & lunch"],
     availableMods: [
       {
@@ -681,7 +681,7 @@ export const info = [
     name: "Turkey Sandwich",
     description: "Sliced smoked turkey, crisp lettuce, tomato, and your choice of cheese on fresh whole-wheat bread. A wholesome, reliable lunch favorite.",
     price: "9.00",
-    image: "./images/turkey-sandwich2.jpg",
+    image: "./images/turkey-sandwich.jpg",
     tags: ["sandwich", "breakfast & lunch"],
     availableMods: [
       {

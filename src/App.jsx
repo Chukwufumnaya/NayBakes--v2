@@ -5,6 +5,7 @@ import MainPage from "./pages/MainPage";
 import MenuPage from "./pages/MenuPage";
 import Cart from "./pages/Cart";
 import About from "./pages/AboutUs";
+import Checkout from "./pages/Checkout";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
           <Route path="/menu" element={<MenuPage />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/about" element={<About />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </CartProvider>
     </HashRouter>

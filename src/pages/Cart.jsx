@@ -1,9 +1,10 @@
 import React from "react";
 import Header from "../components/Header";
 import { useCart } from "../components/CartContext"
+import { Link } from "react-router-dom";
 
 export default function Cart() {
-  const { cartItems, removeFromCart, addQuantity } = useCart();
+  const { cartItems, removeFromCart, addQuantity, clearCart } = useCart();
   const subTotal = cartItems.reduce((sum, item) => sum + item.finalPrice, 0);
   const vat = subTotal * 0.10;
   const totalPrice = subTotal + vat;
@@ -21,7 +22,9 @@ export default function Cart() {
         ) : (
           <>
             <div className="justify-center h-full lg:flex">
-              <div className="w-full">
+              <div className="w-full text-center">
+                <span className="underline cursor-pointer hover:text-amber-700" 
+                onClick={() => clearCart()}>CLEAR CART</span>
                 {cartItems.map(item => (
                   <div key={item.cartItemId} className="bg-[#f7f3e9] p-4 rounded-xl shadow mb-6 w-[90%] md:w-3/4 mx-auto flex items-center justify-between gap-2">
                     <img src={item.image} alt={item.name} className="w-[100px] h-[100px] object-cover rounded-sm" />
@@ -72,7 +75,7 @@ export default function Cart() {
 
                   {cartItems.map(item => (
                     <div key={`summary-${item.cartItemId}`} className="flex justify-between mt-3 text-sm md:text-sm">
-                      
+
                       <div className="flex flex-wrap items-center gap-1">
                         <p>{item.name} x {item.quantity}</p>
                         {item.selectedMods && Object.entries(item.selectedMods).map(([category, mods]) => (
@@ -84,7 +87,7 @@ export default function Cart() {
                           </div>
                         ))}
                       </div>
-                      
+
                       <span>${(Number(item.finalPrice) * item.quantity).toFixed(2)}</span>
                     </div>
                   ))}
@@ -102,7 +105,9 @@ export default function Cart() {
                   </div>
                 </div>
                 <div className="flex items-center justify-center">
-                  <button className="bg-[#D5C4A1] p-2 py-3 rounded-3xl w-[270px] mb-4 cursor-pointer">Proceed to Checkout</button>
+                  <Link to="/checkout">
+                    <button className="bg-[#D5C4A1] p-2 py-3 rounded-3xl w-[270px] mb-4 cursor-pointer">Proceed to Checkout</button>
+                  </Link>
                 </div>
               </div>
             </div>
