@@ -4,7 +4,7 @@ import { useCart } from "../components/CartContext";
 
 export default function Checkout() {
   const { cartItems } = useCart();
-  const subTotal = cartItems.reduce((sum, item) => sum + item.finalPrice, 0);
+  const subTotal = cartItems.reduce((sum, item) => sum + (item.finalPrice * item.quantity), 0);
   const vat = subTotal * 0.10;
   const totalPrice = subTotal + vat;
   const [selectedTime, setSelectedTime] = useState("")
@@ -105,11 +105,11 @@ export default function Checkout() {
           <div className="bg-[#f7f3e9] p-4 rounded-xl shadow mb-6 w-[90%] md:w-[70%] mx-auto text-sm sm:text-lg">
             <p className="flex justify-between">Subtotal: <span>${subTotal.toFixed(2)}</span></p>
             <p className="flex justify-between">VAT: <span>${vat.toFixed(2)}</span></p>
-            <p className="flex justify-between mt-4 font-semibold text-amber-700">Total Amount to Pay at Pickup: <span>${totalPrice.toFixed(2)}</span></p>
+            <p className="flex justify-between mt-4 text-lg font-semibold text-amber-700">Total Amount to Pay at Pickup: <span>${totalPrice.toFixed(2)}</span></p>
           </div>
           <div>
             <p className="sm:text-lg">Pickup Time</p>
-            <div className="bg-[#f7f3e9] p-4 rounded-xl shadow mb-6 w-[100%] sm:w-2/3 mx-auto text-xs sm:text-sm">
+            <div className="bg-[#f7f3e9] p-4 rounded-xl shadow mb-6 w-[100%] sm:w-2/3 mx-auto text-sm">
               <select name="" id="" className="w-4/5 outline-none cursor-pointer">
                 {timeSlotsSelector.length > 0 ? (
                   <>
