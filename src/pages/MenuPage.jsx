@@ -3,6 +3,7 @@ import { info, menuCategories, addOnCosts } from "../data/data";
 import Header from "../components/Header";
 import { useCart } from "../components/CartContext";
 import { SiTicktick } from "react-icons/si";
+import { FaHandPointUp } from "react-icons/fa6";
 
 
 export default function Menu() {
@@ -11,6 +12,8 @@ export default function Menu() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const [selectedMods, setSelectedMods] = useState({});
+  
+  const isMobile = window.innerWidth < 640;
 
   const handleOpenModal = (item) => {
     setSelectedItem(item);
@@ -129,6 +132,13 @@ export default function Menu() {
           className="cursor-pointer [perspective:1000px] group"
           onClick={() => setFlippedId(isFlipped ? null : item.id)}
         >
+          {isMobile && !isFlipped && (
+            <div
+              className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-black/70 text-white p-2 rounded-full shadow-xl`}
+            >
+              <FaHandPointUp size={24} className="rotate-45 animate-pulse" />
+            </div>
+          )}
           <div
             className={`relative h-[305px] w-full rounded-xl shadow-xl transition-all duration-1000 [transform-style:preserve-3d] ${isFlipped ? "[transform:rotateY(180deg)]" : ""
               } group-hover:[transform:rotateY(180deg)]`}

@@ -1,19 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../components/Header";
 import { Link } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
 import { info } from "../data/data";
 import { reviews } from "../data/reviews";
-import { FaInstagram, FaFacebook, FaXTwitter } from "react-icons/fa6";
+import { FaInstagram, FaFacebook, FaXTwitter, FaHandPointUp } from "react-icons/fa6";
 
 function FlippableCard({ item }) {
-  const [flipped, setFlipped] = React.useState(false);
+  const [flipped, setFlipped] = useState(false);
 
   // Detect if it's mobile (simple check)
   const isMobile = window.innerWidth < 640;
 
   const handleFlip = () => {
-    if (isMobile) setFlipped(f => !f);
+    setFlipped(f => !f);
   };
 
   return (
@@ -21,12 +21,19 @@ function FlippableCard({ item }) {
       className={`bg-[#D5C4A1] p-8 py-5 w-[270px] h-[280px] cursor-pointer [perspective:1000px] group rounded-xl shadow`}
       onClick={handleFlip}
     >
+      {isMobile && !flipped && (
+        <div
+          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-black/70 text-white p-2 rounded-full shadow-xl`}
+        >
+          <FaHandPointUp size={24} className="rotate-45 animate-pulse" />
+        </div>
+      )}
       <div
-        className={`relative h-[220px] w-full rounded-xl shadow-xl transition-all duration-1000 [transform-style:preserve-3d] 
+        className={`relative h-[220px] w-full rounded-xl shadow-xl transition-all duration-1000 [transform-style:preserve-3d]
           ${flipped ? '[transform:rotateY(180deg)]' : ''}
-          group-hover:[transform:rotateY(180deg)]`}
+          ${!flipped ? 'group-hover:[transform:rotateY(180deg)]' : ''}`}
       >
-        <div className="absolute inset-0 h-[220px] w-[210px] rounded-xl [backface-visibility:hidden] overflow-hidden">
+        <div className="absolute inset-0 h-[220px] w-[210px] rounded-xl [backface-visibility:hidden] overflow-hidden z-10">
           <img
             src={item.image}
             alt={item.name}
@@ -34,7 +41,7 @@ function FlippableCard({ item }) {
             className="object-cover w-full h-full "
           />
         </div>
-        <div className="absolute inset-0 h-full w-full rounded-xl [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col items-center justify-center p-4 text-center text-xs">
+        <div className="absolute inset-0 h-full w-full rounded-xl [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col items-center justify-center p-4 text-center text-xs z-20">
           <p>{item.description}</p>
         </div>
       </div>

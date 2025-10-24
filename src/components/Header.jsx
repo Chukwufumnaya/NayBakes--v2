@@ -43,7 +43,7 @@ export default function Header() {
             <IoCartOutline
               className="w-5 h-5 " />
           </Link>
-          <div className="absolute font-semibold text-red-900 left-1 bottom-3">{cartQuantity}</div>
+          <div className="absolute font-semibold text-red-900 left-2 bottom-3">{cartQuantity}</div>
         </div>
 
       </div>
