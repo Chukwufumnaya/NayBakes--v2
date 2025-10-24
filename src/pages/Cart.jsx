@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function Cart() {
   const { cartItems, removeFromCart, addQuantity, clearCart } = useCart();
-  const subTotal = cartItems.reduce((sum, item) => sum + item.finalPrice, 0);
+  const subTotal = cartItems.reduce((sum, item) => sum + item.finalPrice * item.quantity, 0);
   const vat = subTotal * 0.10;
   const totalPrice = subTotal + vat;
 
@@ -23,8 +23,8 @@ export default function Cart() {
           <>
             <div className="justify-center h-full lg:flex">
               <div className="w-full text-center">
-                <span className="underline cursor-pointer hover:text-amber-700" 
-                onClick={() => clearCart()}>CLEAR CART</span>
+                <span className="underline cursor-pointer hover:text-amber-700"
+                  onClick={() => clearCart()}>CLEAR CART</span>
                 {cartItems.map(item => (
                   <div key={item.cartItemId} className="bg-[#f7f3e9] p-4 rounded-xl shadow mb-6 w-[90%] md:w-3/4 mx-auto flex items-center justify-between gap-2">
                     <img src={item.image} alt={item.name} className="w-[100px] h-[100px] object-cover rounded-sm" />
