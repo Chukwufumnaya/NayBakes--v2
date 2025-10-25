@@ -41,9 +41,9 @@ export default function Header() {
         <div className="relative">
           <Link to="/cart">
             <IoCartOutline
-              className="w-5 h-5 " />
+              className="w-5 h-5" />
           </Link>
-          <div className="absolute font-semibold text-red-900 left-2 bottom-3">{cartQuantity}</div>
+          <div className="absolute font-semibold text-red-900 right-1 bottom-3">{cartQuantity}</div>
         </div>
 
       </div>

@@ -261,7 +261,7 @@ export const info = [
       {
         category: 'Sweetener',
         options: ['None', 'Honey', 'Sugar'],
-        default: 'Sugar',
+        default: 'None',
         type: 'radio'
       }
     ]
@@ -289,7 +289,7 @@ export const info = [
       {
         category: 'Sweetener',
         options: ['None', 'Honey', 'Sugar'],
-        default: 'Sugar',
+        default: 'None',
         type: 'radio'
       }
     ]
@@ -317,7 +317,7 @@ export const info = [
       {
         category: 'Sweetener',
         options: ['None', 'Honey', 'Sugar'],
-        default: 'Sugar',
+        default: 'None',
         type: 'radio'
       }
     ]
@@ -390,7 +390,7 @@ export const info = [
       {
         category: 'Yogurt',
         options: ['Greek', 'Plain', 'Almond'],
-        default: 'Greek',
+        default: 'Plain',
         type: 'radio'
       }
     ]
@@ -418,7 +418,7 @@ export const info = [
       {
         category: 'Yogurt',
         options: ['Greek', 'Plain', 'Almond'],
-        default: 'Greek',
+        default: 'Plain',
         type: 'radio'
       }
     ]
@@ -442,13 +442,13 @@ export const info = [
       {
         category: 'Drizzles',
         options: ['None', 'Honey', 'Chocolate', 'Butter'],
-        default: 'Honey',
+        default: 'None',
         type: 'radio'
       },
       {
         category: 'Toppings',
         options: ['None', 'Fresh Berries'],
-        default: 'Fresh Berries',
+        default: 'None',
         type: 'radio'
 
       },
@@ -471,13 +471,13 @@ export const info = [
       {
         category: 'Drizzles',
         options: ['None', 'Honey', 'Chocolate', 'Butter'],
-        default: 'Honey',
+        default: 'None',
         type: 'radio'
       },
       {
         category: 'Toppings',
         options: ['None', 'Fresh Berries'],
-        default: 'Fresh Berries',
+        default: 'None',
         type: 'radio'
 
       }
@@ -494,13 +494,13 @@ export const info = [
       {
         category: 'Drizzles',
         options: ['None', 'Honey', 'Chocolate', 'Butter'],
-        default: 'Honey',
+        default: 'None',
         type: 'radio'
       },
       {
         category: 'Toppings',
         options: ['None', 'Fresh Berries'],
-        default: 'Fresh Berries',
+        default: 'None',
         type: 'radio'
 
       }
@@ -784,10 +784,10 @@ export const addOnCosts = {
   'Size': { 'Large': 0.75, 'Medium': 0, 'Small': 0, '6-inch': 0, '8-inch': 0, '10-inch': 0.50 },
   'Milk': { 'Oat': 0.75, 'Almond': 0.75, 'Whole': 0 },
   'Syrup': { 'None': 0, 'Vanilla': 0.50, 'Caramel': 0.50, 'Hazelnut': 0.50 },
-  'Toppings': { 'Whipped Cream': 0, 'Mini Marshmallows': 0.50, 'Fresh Berries': 0.50, 'Vanilla Ice Cream': 0.50, 'Extra Cream Cheese Frosting': 0.50, 'None': 0, 'Cream Cheese': 0, 'Butter': 0, 'Jam': 0 },
+  'Toppings': { 'None': 0, 'Whipped Cream': 0, 'Mini Marshmallows': 0.50, 'Fresh Berries': 0.50, 'Vanilla Ice Cream': 0.50, 'Extra Cream Cheese Frosting': 0.50, 'Cream Cheese': 0, 'Butter': 0, 'Jam': 0 },
   'Sweetener': { 'None': 0, 'Sugar': 0.50, 'Honey': 0.50 },
   'Gluten Free': { 'None': 0, 'Gluten Free': 1.00 },
-  'Yogurt': { 'Greek': 0.50, 'Plain': 0, 'Almond': 0.50 },
+  'Yogurt': { 'Plain': 0, 'Greek': 0.50, 'Almond': 0.50 },
   'Filling': { 'None': 0, 'Tomato': 0.75, 'Avocado': 0.75 },
   'Drizzles': { 'None': 0, 'Caramel': 0.75, 'Pecans': 0.75, 'Walnuts': 0.75, 'Honey': 0.75, 'Chocolate': 0.75, 'Butter': 0.75 }
 }

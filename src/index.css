@@ -10,5 +10,14 @@
 body {
   font-family: "Poppins";
   background-color: #E0D4BB;
-  font-weight:300;
+  font-weight: 300;
+}
+
+@media print{
+  body{
+    visibility: hidden;
+  }
+  #printable-ticket{
+    visibility:visible;
+  }
 }
