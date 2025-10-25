@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import { TypeAnimation } from "react-type-animation";
 import { info } from "../data/data";
 import { reviews } from "../data/reviews";
@@ -109,9 +110,9 @@ export default function MainPage() {
           </div>
         </section>
         <section className="mt-6 text-center">
-          <Link to="/menu">
+          <HashLink to="/menu#menu">
             <button className="bg-[#D5C4A1] p-3 rounded-3xl text-sm sm:text-lg cursor-pointer hover:bg-[#9b8e73]">View our menu and place your order now!</button>
-          </Link>
+          </HashLink>
         </section>
         {/** Popular Items Section*/}
         <section className="flex flex-col items-center justify-center mt-6 text-center">

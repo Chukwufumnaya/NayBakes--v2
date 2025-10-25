@@ -299,7 +299,7 @@ export default function Menu() {
   return (
     <>
       <Header />
-      <main>
+      <main id="menu">
         <h1 className="p-4 text-4xl font-normal text-center">MENU</h1>
         <div className="flex flex-wrap items-center justify-around gap-5">
           {hyperlinks}
