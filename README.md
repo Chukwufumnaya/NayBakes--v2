@@ -6,6 +6,13 @@ This project simulates a modern, mobile-first cafe ordering system that showcase
 
 ### **Live Demo:** https://chukwufumnaya.github.io/NayBakes--v2/
 
+**Screenshots:**
+![Screenshot 1](/public/images/screenshot-1.png)
+![Screenshot 2](/public/images/screenshot-2.png)
+![Screenshot 3](/public/images/screenshot-3.png)
+![Screenshot 4](/public/images/screenshot-4.png)
+![Screenshot 5](/public/images/screenshot-5.png)
+
 ---
 
 ### Features
