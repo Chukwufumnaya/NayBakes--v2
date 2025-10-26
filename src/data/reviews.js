@@ -13,5 +13,10 @@ export const reviews = [
     id:3,
     avatar:"./images/avatars/m1.svg",
     review:"Those chocolate chip cookies? Forget about it! Perfectly gooey, with just the right amount of chocolate. My kids devoured them and I may have 'sampled' a few myself. Highly recommend! -John"
+  },
+  {
+    id:4,
+    avatar:"./images/avatars/m2.svg",
+    review:"Absolutely excellent!. I especially love their selection of teas. -Abel"
   }
 ]

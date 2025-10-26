@@ -1,16 +1,36 @@
-# React + Vite
+# NayBakes--v2
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project simulates a modern, mobile-first cafe ordering system that showcases React state management, dynamic UI generation and a checkout system that uses a printable ticket system.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### **Live Demo:** https://chukwufumnaya.github.io/NayBakes--v2/
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Features
 
-## Expanding the ESLint configuration
+* **Dynamic Customization Modal:** Implemented a two-step "Add to Cart" process where the initial click opens a dedicated modal to select modifications for that particular item, if available, e.g. size, milk type, etc. Also ensures the cart receives the modified menu items.
+* **Realistic Time Slot Generation:** Checkout includes logic to generate sensible pickup times based on the current time, a 15-minute prep time and the cafe's opening and closing hours.
+* **Printable Order Ticket:** The final step generates a styled, print-ready receipt with a unique Order ID and scheduled pickup time, utilizing CSS Print Media Queries to hide site navigation and focus only on the receipt content.
+* **Responsive Design:** Built using Tailwind CSS for a seamless experience across mobile and desktop devices.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+### This is an upgrade from the first version https://chukwufumnaya.github.io/NayBakes/
+
+### Upgrades include:
+
+* Add to Cart Feature
+* Customization of Menu Items
+* Checkout Feature
+* Order Ticket Generation
+* Calculated Pickup Time Slots
+
+---
+
+### Technologies Used
+
+* Framework: React
+* Styling: Tailwind CSS
+* Core Logic: Modern JavaScript
