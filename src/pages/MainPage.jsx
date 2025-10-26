@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import Header from "../components/Header";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
@@ -6,9 +6,9 @@ import { TypeAnimation } from "react-type-animation";
 import { info } from "../data/data";
 import { reviews } from "../data/reviews";
 import { FaInstagram, FaFacebook, FaXTwitter, FaHandPointUp } from "react-icons/fa6";
-import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Slider from "react-slick";
 
 function FlippableCard({ item }) {
   const [flipped, setFlipped] = useState(false);
@@ -83,6 +83,7 @@ export default function MainPage() {
     </div>
   ))
 
+
   const settings = {
     dots: true,
     infinite: true,
@@ -94,11 +95,11 @@ export default function MainPage() {
 
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 641,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 0,
           dots: true
         }
       },
@@ -112,16 +113,17 @@ export default function MainPage() {
         }
       },
       {
-        breakpoint: 640,
+        breakpoint: 1024,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          initialSlide: 0,
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
           dots: true
         }
       }
     ]
   };
+
 
   return (
     <>
@@ -158,10 +160,10 @@ export default function MainPage() {
           </HashLink>
         </section>
         {/** Popular Items Section*/}
-        <section className="flex flex-col items-center justify-center mt-6 text-center">
+        <section className="mt-6 text-center">
           <h2 className="mb-4 text-4xl font-normal">POPULAR ITEMS</h2>
           <p>These are popular with our customers.</p>
-          <div className="w-[90%] mx-auto p-4 md:p-8">
+          <div className="w-[90%] mx-auto p-4 md:p-8 min-w-0">
             <Slider {...settings}>
               {popularCardContent}
             </Slider>
@@ -169,10 +171,10 @@ export default function MainPage() {
         </section>
 
         {/** Top Items Section*/}
-        <section className="flex flex-col items-center justify-center mt-6 text-center">
+        <section className="mt-6 text-center">
           <h2 className="mt-6 mb-4 text-4xl font-normal">TOP PRODUCTS</h2>
           <p>These are our most sold out products this week.</p>
-          <div className="w-[90%] mx-auto p-4 md:p-8">
+          <div className="w-[90%] mx-auto p-4 md:p-8 min-w-0">
             <Slider {...settings}>
               {topCardContent}
             </Slider>
@@ -183,7 +185,7 @@ export default function MainPage() {
         <section className="flex flex-col items-center justify-center mt-6 text-center" id="reviews">
           <h2 className="mt-6 mb-4 text-4xl font-normal">REVIEWS</h2>
           <p>Here&apos;s what some of our customers have to say</p>
-          <div className="w-[90%] mx-auto p-4 md:p-8">
+          <div className="w-[90%] mx-auto p-4 md:p-8 min-w-0">
             <Slider {...settings}>
               {customerReviews}
             </Slider>
