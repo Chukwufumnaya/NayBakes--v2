@@ -12,12 +12,12 @@ export default function Menu() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const [selectedMods, setSelectedMods] = useState({});
-  
+
   const isMobile = window.innerWidth < 640;
 
   const handleOpenModal = (item) => {
     setSelectedItem(item);
-
+    {/**Generates the modification items in the modal */ }
     const initialMods = {};
     if (item.availableMods) {
       item.availableMods.forEach(mod => {
@@ -58,7 +58,7 @@ export default function Menu() {
   }
 
   const noneOption = 'None';
-
+  {/**Handles the storage of selected modifications */ }
   const handleModChange = (category, option, cost, type) => {
     setSelectedMods(prevMods => {
       const newMods = { ...prevMods };

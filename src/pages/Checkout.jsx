@@ -9,7 +9,8 @@ export default function Checkout() {
   const subTotal = cartItems.reduce((sum, item) => sum + (item.finalPrice * item.quantity), 0);
   const vat = subTotal * 0.10;
   const totalPrice = subTotal + vat;
-
+  
+  {/**Generates the time slots for pickup time selection */}
   const pickUpTimeSlots = () => {
     const minPrepTime = 15;
     const slotInterval = 5;

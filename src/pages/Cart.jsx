@@ -34,7 +34,8 @@ export default function Cart() {
                         <p className="text-center">{item.name}</p>
                         <p>${Number(item.finalPrice).toFixed(2)}</p>
                       </div>
-
+                      
+                      {/**Adds the modifications to the elements that have mods */}
                       {item.selectedMods && Object.entries(item.selectedMods).map(([category, mods]) => (
                         <div key={`${item.cartItemId}-${category}`} className="text-[10px] text-center text-neutral-500">
                           <strong>{category}: </strong>

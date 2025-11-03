@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import Header from "../components/Header";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
@@ -13,7 +13,7 @@ import Slider from "react-slick";
 function FlippableCard({ item }) {
   const [flipped, setFlipped] = useState(false);
 
-  // Detect if it's mobile (simple check)
+  {/**Detect if it's mobile (simple check) */ }
   const isMobile = window.innerWidth < 640;
 
   const handleFlip = () => {
@@ -83,7 +83,7 @@ export default function MainPage() {
     </div>
   ))
 
-
+  {/**Carousel settings */ }
   const settings = {
     dots: true,
     infinite: true,
